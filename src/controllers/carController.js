@@ -58,6 +58,16 @@ async function getBoughtCars(req, res) {
     }
 }
 
+async function getAvailableCars(req, res) {
+    const result = await db_findOne("cars", "isBought", false);
+
+    if(!result) {
+        return res.sendStatus(200)
+    } else {
+        return res.send({result})
+    }
+}
+
 async function setCarAsBought(req, res) {
     const carID = req.params.id;
 
@@ -74,4 +84,4 @@ async function setCarAsBought(req, res) {
 
 }
 
-export {createCar, getCars, setCarAsBought, getBoughtCars}
+export {createCar, getCars, setCarAsBought, getBoughtCars, getAvailableCars}
