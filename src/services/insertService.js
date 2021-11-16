@@ -3,6 +3,8 @@ import connection from "../database.js";
 async function db_insertOne(table, columns, values) {
     const queryStrings = makeQueryComponents(columns)
 
+    console.log(queryStrings)
+    
     try {
         await connection.query(
             `INSERT INTO ${table}
@@ -32,6 +34,7 @@ function makeQueryComponents(columns) {
         }
     }
 
+    
     return {
         columns: queryColumns,
         numbers: queryNumbers
