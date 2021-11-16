@@ -7,12 +7,12 @@ const routes = express.Router()
 const baseURL = "/api/v1/"
 
 
-routes.get(baseURL + "cars", getCars)
-routes.post(baseURL + "cars", createCar)
-routes.put(baseURL + "cars/:id", setCarAsBought)
+routes.get("/api/v1/cars", getCars)
+routes.post("/api/v1/cars", createCar)
+routes.put("/api/v1/cars/:id", setCarAsBought)
 
-routes.get(baseURL + "categories", getCategories)
-routes.post(baseURL + "categories", createCategory)
+routes.get("/api/v1/categories", getCategories)
+routes.post("/api/v1/categories", createCategory)
 
-routes.get(baseURL + "producer", getProducers)
-routes.post(baseURL + "producer", createProducer)
+routes.get("/api/v1/producer", getProducers)
+routes.post("/api/v1/producer", createProducer)
