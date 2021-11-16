@@ -25,7 +25,7 @@ function makeQueryComponents(columns) {
     let queryNumbers = "(";
 
     for(let index in columns) {
-        console.log(index)
+        console.log(index === columns.length - 1, columns.length)
         if (index === columns.length - 1) {
             queryColumns = queryColumns + columns[index] + ")"
             queryNumbers = queryNumbers + "$" + (index + 1) + ")"
