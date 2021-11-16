@@ -1,7 +1,7 @@
 import connection from "../database.js";
 
-async function db_listAll(table) {
-    const result = await connection.query(`SELECT * FROM ${table.toString()}`);
+async function db_listAll(table, orderBy = null) {
+    const result = await connection.query(`SELECT * FROM ${table.toString()} ${orderBy}`);
     
     if(result.rows.length === 0) {
         return false;

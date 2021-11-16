@@ -39,7 +39,17 @@ async function createCar(req, res) {
 }
 
 async function getCars(req, res) {
-    const result = await db_listAll("cars")
+    const result = await db_listAll("cars", "ORDER BY value ASC")
+
+    if(!result) {
+        return res.sendStatus(200)
+    } else {
+        return res.send({result})
+    }
+}
+
+async function getBoughtCars(req, res) {
+    const result = await db_findOne("cars", "isBought", true);
 
     if(!result) {
         return res.sendStatus(200)
@@ -64,4 +74,4 @@ async function setCarAsBought(req, res) {
 
 }
 
-export {createCar, getCars, setCarAsBought}
+export {createCar, getCars, setCarAsBought, getBoughtCars}
