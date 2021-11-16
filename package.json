@@ -1,0 +1,30 @@
+{
+  "name": "horicars-api",
+  "version": "1.0.0",
+  "description": "An API to manage cars from game Forza Horizon 5",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niveamartins/horicars-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/niveamartins/horicars-api/issues"
+  },
+  "homepage": "https://github.com/niveamartins/horicars-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "joi": "^17.4.2",
+    "pg": "^8.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
