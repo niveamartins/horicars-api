@@ -4,7 +4,7 @@ async function db_insertOne(table, columns, values) {
     const queryStrings = makeQueryComponents(columns)
 
     console.log(queryStrings)
-    
+
     try {
         await connection.query(
             `INSERT INTO ${table}
@@ -25,15 +25,16 @@ function makeQueryComponents(columns) {
     let queryNumbers = "(";
 
     for(let index in columns) {
+        console.log(index)
         if (index === columns.length - 1) {
             queryColumns = queryColumns + columns[index] + ")"
-            queryNumbers = queryNumbers + "$" + (index + 1).toString() + ")"
+            queryNumbers = queryNumbers + "$" + (index + 1) + ")"
         } else {
             queryColumns = queryColumns + columns[index] + ", "
-            queryNumbers = queryNumbers + "$" + (index + 1).toString() + ", "
+            queryNumbers = queryNumbers + "$" + (index + 1) + ", "
         }
     }
-
+/* { columns: '(name, ', numbers: '($01, ' } */
     
     return {
         columns: queryColumns,
