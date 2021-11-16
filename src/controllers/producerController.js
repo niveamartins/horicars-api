@@ -1,6 +1,6 @@
-import producerSchema from "../schemas/producerSchema";
-import { db_insertOne } from "../services/insertService";
-import { db_findOne, db_listAll } from "../services/selectService";
+import producerSchema from "../schemas/producerSchema.js";
+import { db_insertOne } from "../services/insertService.js";
+import { db_findOne, db_listAll } from "../services/selectService.js";
 
 async function createProducer(req, res) {
     const validation = producerSchema.validate(req.body);

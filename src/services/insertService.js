@@ -1,4 +1,4 @@
-import connection from "../database";
+import connection from "../database.js";
 
 async function db_insertOne(table, columns, values) {
     const queryStrings = makeQueryComponents(columns)

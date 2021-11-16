@@ -1,7 +1,7 @@
-import connection from "../database";
-import carSchema from "../schemas/carSchema";
-import { db_insertOne } from "../services/insertService";
-import { db_findOne, db_listAll } from "../services/selectService";
+import connection from "../database.js";
+import carSchema from "../schemas/carSchema.js";
+import { db_insertOne } from "../services/insertService.js";
+import { db_findOne, db_listAll } from "../services/selectService.js";
 
 async function createCar(req, res) {
     const validation = carSchema.validate(req.body);
@@ -12,17 +12,17 @@ async function createCar(req, res) {
 
     const {name, value, year, producer, category} = req.body;
 
-    const category = await db_findOne("categories", "category_id", category);
+    const categoryFound = await db_findOne("categories", "category_id", category);
 
-    if (!category) {
+    if (!categoryFound) {
         return res.status(400).send({
             msg: "category doesnt exist."
         })
     }
 
-    const producer = await db_findOne("producers", "producer_id", producer);
+    const producerFound = await db_findOne("producers", "producer_id", producer);
 
-    if (!producer) {
+    if (!producerFound) {
         return res.status(400).send({
             msg: "producer doesnt exist."
         })

@@ -1,4 +1,4 @@
-import connection from "../database";
+import connection from "../database.js";
 
 async function db_listAll(table) {
     const result = await connection.query(`SELECT * FROM ${table.toString()}`);

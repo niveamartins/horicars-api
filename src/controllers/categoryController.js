@@ -1,6 +1,6 @@
-import categorySchema from "../schemas/categorySchema";
-import { db_insertOne } from "../services/insertService";
-import { db_findOne, db_listAll } from "../services/selectService";
+import categorySchema from "../schemas/categorySchema.js";
+import { db_insertOne } from "../services/insertService.js";
+import { db_findOne, db_listAll } from "../services/selectService.js";
 
 async function createCategory(req, res) {
     const validation = categorySchema.validate(req.body);
